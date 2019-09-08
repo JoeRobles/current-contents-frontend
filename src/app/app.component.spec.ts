@@ -23,6 +23,6 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
-    expect(component).toBeDefined();
+    expect(component).toBeTruthy();
   });
 });

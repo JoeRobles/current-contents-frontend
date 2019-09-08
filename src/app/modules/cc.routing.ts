@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ListComponent } from './author/pages/list/list.page';
-
-export const CC_ROUTES: Routes = [
-  { path: 'author', component: ListComponent }
-];
+export const CC_ROUTES: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(CC_ROUTES)],
