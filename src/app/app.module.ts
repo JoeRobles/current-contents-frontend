@@ -6,6 +6,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/modules/material/material.module';
+import { CcModule } from './modules/cc.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MaterialModule } from './shared/modules/material/material.module';
     BrowserAnimationsModule,
     MaterialModule,
     ToastrModule.forRoot(),
+    CcModule
   ],
   providers: [],
   bootstrap: [AppComponent]
