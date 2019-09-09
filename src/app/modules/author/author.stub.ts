@@ -1,4 +1,4 @@
-import { AllAuthorsResponse, AuthorItem } from './author.interface';
+import { AllAuthorsResponse, AuthorItem, AuthorResponse } from './author.interface';
 
 export const AuthorStub = {
   allAuthorsResponse: <AllAuthorsResponse> {
@@ -28,5 +28,14 @@ export const AuthorStub = {
     ],
     Count: 3,
     ScannedCount: 3
+  },
+  singleAuthorResponse: <AuthorResponse> {
+    Item: <AuthorItem> {
+      authorId: '1m8gc7k068va1t',
+      createdAt: '2019-09-05T05:22:55.265Z',
+      authorName: 'J. R. R. Tolkien',
+      email: 'j.r.r.tolkien@msn.com',
+      birthDate: '01/03/1892'
+    }
   }
 };

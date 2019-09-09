@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { Author } from './author.enum';
-import { AllAuthorsResponse } from './author.interface';
+import { AllAuthorsResponse, AuthorResponse } from './author.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,11 @@ export class AuthorApiService {
     const endpoint = `${this.url}/`;
 
     return this.http.get<AllAuthorsResponse>(endpoint);
+  }
+
+  public getAuthorById(id: string): Observable<AuthorResponse> {
+    const endpoint = `${this.url}/${id}`;
+
+    return this.http.get<AuthorResponse>(endpoint);
   }
 }

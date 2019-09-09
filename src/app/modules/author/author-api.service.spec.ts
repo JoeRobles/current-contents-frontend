@@ -25,4 +25,12 @@ describe('AuthorApiService', () => {
     service.getAllAuthors();
     expect(http.get).toHaveBeenCalledWith(endpoint);
   }));
+
+  it('should get an author by id', inject([HttpClient], http => {
+    spyOn(http, 'get');
+    const id = '123456';
+    const endpoint = (service as any).url + '/' + id;
+    service.getAuthorById(id);
+    expect(http.get).toHaveBeenCalledWith(endpoint);
+  }));
 });

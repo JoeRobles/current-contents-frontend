@@ -12,3 +12,7 @@ export interface AllAuthorsResponse {
   Count: number;
   ScannedCount: number;
 }
+
+export interface AuthorResponse {
+  Item: AuthorItem;
+}

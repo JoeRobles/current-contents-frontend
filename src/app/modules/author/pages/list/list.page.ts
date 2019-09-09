@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
     this.getAllAuthors();
   }
 
-  private getAllAuthors() {
+  private getAllAuthors(): void {
     this.authorApiService.getAllAuthors().subscribe(
       list => {
         this.authorsList = list;

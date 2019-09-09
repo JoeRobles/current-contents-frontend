@@ -1,5 +1,5 @@
 import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
-import { Observable, throwError } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 import { AuthorStub } from '../../author.stub';
 import { AuthorApiService } from '../../author-api.service';
@@ -13,9 +13,7 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ListComponent
-      ],
+      declarations: [ ListComponent ],
       providers: [
         { provide: AuthorApiService, useValue: AuthorApiServiceStub }
       ]
@@ -25,7 +23,8 @@ describe('ListComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ListComponent);
-    component = fixture.debugElement.componentInstance;
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -45,7 +44,7 @@ describe('ListComponent', () => {
   }));
 
   it('should get all authors', inject([AuthorApiService], (author: AuthorApiService) => {
-    spyOn(author, 'getAllAuthors').and.returnValue(Observable.create(AuthorStub.allAuthorsResponse));
+    spyOn(author, 'getAllAuthors').and.returnValue(of(AuthorStub.allAuthorsResponse));
     (component as any).getAllAuthors();
     author.getAllAuthors().subscribe(
       list => {

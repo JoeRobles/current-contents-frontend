@@ -1,8 +1,9 @@
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
-import { AllAuthorsResponse } from './author.interface';
+import { AllAuthorsResponse, AuthorResponse } from './author.interface';
 import { AuthorStub } from './author.stub';
 
 export const AuthorApiServiceStub = {
-  getAllAuthors: (): Observable<AllAuthorsResponse> => Observable.create(AuthorStub.allAuthorsResponse)
+  getAllAuthors: (): Observable<AllAuthorsResponse> => of(AuthorStub.allAuthorsResponse),
+  getAuthorById: (id): Observable<AuthorResponse> => of(AuthorStub.singleAuthorResponse)
 };
