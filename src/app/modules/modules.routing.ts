@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-export const CC_ROUTES: Routes = [];
+export const MODULES_ROUTES: Routes = [];
 
 @NgModule({
-  imports: [RouterModule.forChild(CC_ROUTES)],
+  imports: [RouterModule.forChild(MODULES_ROUTES)],
   exports: [RouterModule]
 })
-export class CcRoutingModule { }
+export class ModulesRoutingModule { }

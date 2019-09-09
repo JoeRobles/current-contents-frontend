@@ -7,8 +7,10 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CcModule } from './modules/cc.module';
+import { ModulesModule } from './modules/modules.module';
+import { PagesModule } from './pages/pages.module';
 import { MaterialModule } from './shared/modules/material/material.module';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   imports: [
@@ -19,10 +21,12 @@ import { MaterialModule } from './shared/modules/material/material.module';
     BrowserAnimationsModule,
     MaterialModule,
     ToastrModule.forRoot(),
-    CcModule
+    ModulesModule,
+    PagesModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

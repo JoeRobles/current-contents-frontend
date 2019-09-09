@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthorModule } from './author/author.module';
-import { CcRoutingModule } from './cc.routing';
+import { ModulesRoutingModule } from './modules.routing';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     AuthorModule,
-    CcRoutingModule
+    ModulesRoutingModule
   ]
 })
-export class CcModule { }
+export class ModulesModule { }
