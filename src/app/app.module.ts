@@ -14,14 +14,14 @@ import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   imports: [
-    BrowserModule,
-    AppRoutingModule,
     CommonModule,
-    HttpClientModule,
+    BrowserModule,
     BrowserAnimationsModule,
+    ModulesModule,
+    AppRoutingModule,
+    HttpClientModule,
     MaterialModule,
     ToastrModule.forRoot(),
-    ModulesModule,
     PagesModule
   ],
   declarations: [
