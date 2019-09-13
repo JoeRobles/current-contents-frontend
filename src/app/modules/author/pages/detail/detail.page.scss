@@ -1,0 +1,18 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+
+  ::ng-deep {
+
+    .mat-form-field-infix {
+
+      input {
+        cursor: default;
+      }
+    }
+  }
+}
+
+.example-container > * {
+  width: 100%;
+}

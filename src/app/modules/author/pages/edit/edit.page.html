@@ -1,16 +1,28 @@
-<form fxLayout="column" novalidate autocomplete="nope" (keydown.enter)="$event.preventDefault()">
-  <mat-form-field>
-    <mat-label>Descripción de la operación</mat-label>
-    <input matInput type="text" formControlName="description" #characters maxLength="30" autocomplete="nope" placeholder="Pago de Préstamo o Crédito">
-  </mat-form-field>
-
-  <mat-form-field>
-    <textarea matInput placeholder="Textarea"></textarea>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-select placeholder="Select">
-      <mat-option value="option">Option</mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>
+<h1>Edit author</h1>
+<mat-progress-spinner
+  *ngIf="!author"
+  class="example-margin"
+  color="primary"
+  mode="indeterminate"
+  value="20">
+</mat-progress-spinner>
+<mat-card *ngIf="author">
+  <form class="example-container" [formGroup]="form" fxLayout="column" novalidate autocomplete="nope" (keydown.enter)="$event.preventDefault()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="authorName" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Birth date</mat-label>
+      <input matInput formControlName="birthDate" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+    </mat-form-field>
+    <mat-card-actions>
+      <button (click)="submit()" mat-raised-button color="primary">Submit</button>
+      <button mat-raised-button color="warn">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

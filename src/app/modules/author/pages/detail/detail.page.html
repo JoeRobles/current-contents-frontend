@@ -1,2 +1,28 @@
-<p>detail works!</p>
-{{ author | json }}
+<h1>Detail of an author</h1>
+<mat-progress-spinner
+  *ngIf="!author"
+  class="example-margin"
+  color="primary"
+  mode="indeterminate"
+  value="20">
+</mat-progress-spinner>
+<mat-card *ngIf="author">
+  <form class="example-container" [formGroup]="form" fxLayout="column" novalidate autocomplete="nope" (keydown.enter)="$event.preventDefault()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="authorName" readonly />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Birth date</mat-label>
+      <input matInput formControlName="birthDate" readonly />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" readonly />
+    </mat-form-field>
+    <mat-card-actions>
+      <button type="submit" mat-raised-button [routerLink]="['/author/edit/' + author.authorId]" color="primary">Edit</button>
+      <button mat-raised-button (click)="back()" color="accent">Back</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

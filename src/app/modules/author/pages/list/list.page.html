@@ -1,15 +1,43 @@
-<mat-table [dataSource]="authorsList" class="mat-elevation-z8">
+<h1>List of authors</h1>
+<button mat-raised-button class="pull-right" [routerLink]="['/author/new']" color="primary" type="button">Create</button>
+<mat-progress-spinner
+  *ngIf="!authorsList"
+  class="example-margin"
+  color="primary"
+  mode="indeterminate"
+  value="20">
+</mat-progress-spinner>
+<mat-table *ngIf="authorsList" [dataSource]="authorsList" class="mat-elevation-z8">
+  <ng-container matColumnDef="index">
+    <mat-header-cell *matHeaderCellDef>Nº</mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index;">
+      <a [routerLink]="['/author/detail/' + element.authorId]">{{ i + 1 }}</a>
+    </mat-cell>
+  </ng-container>
   <ng-container matColumnDef="authorName">
-    <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.authorName}} </mat-cell>
+    <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <a [routerLink]="['/author/detail/' + element.authorId]">{{ element.authorName }}</a>
+    </mat-cell>
   </ng-container>
   <ng-container matColumnDef="birthDate">
-    <mat-header-cell *matHeaderCellDef> Body </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.birthDate}} </mat-cell>
+    <mat-header-cell *matHeaderCellDef>Body</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <a [routerLink]="['/author/detail/' + element.authorId]">{{ element.birthDate }}</a>
+    </mat-cell>
   </ng-container>
   <ng-container matColumnDef="email">
-    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <a [routerLink]="['/author/detail/' + element.authorId]">{{ element.email }}</a>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-raised-button [routerLink]="['/author/edit/' + element.authorId]" color="primary" type="button">Edit</button>&nbsp;&nbsp;
+      <button mat-raised-button (click)="delete()" color="warn" type="button">Delete</button>
+    </mat-cell>
   </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

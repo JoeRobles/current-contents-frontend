@@ -1,29 +1,49 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
-  MatFormFieldModule, MatOptionModule, MatSelectModule, MatTableModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatOptionModule,
+  MatProgressSpinnerModule,
+  MatSelectModule,
+  MatTableModule,
   MatToolbarModule
 } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatOptionModule,
-    MatSelectModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule,
+    ReactiveFormsModule
   ],
   exports: [
-    MatSidenavModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatOptionModule,
-    MatSelectModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule,
+    ReactiveFormsModule
   ]
 })
 export class MaterialModule { }

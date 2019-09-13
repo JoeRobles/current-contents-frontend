@@ -1,1 +1,21 @@
-<p>create works!</p>
+<h1>Create author</h1>
+<mat-card>
+  <form class="example-container" [formGroup]="form" fxLayout="column" novalidate autocomplete="nope" (keydown.enter)="$event.preventDefault()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="authorName" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Birth date</mat-label>
+      <input matInput formControlName="birthDate" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+    </mat-form-field>
+    <mat-card-actions>
+      <button (click)="submit()" mat-raised-button color="primary">Submit</button>
+      <button (click)="back()" mat-raised-button color="warn">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

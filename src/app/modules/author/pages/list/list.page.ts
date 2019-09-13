@@ -10,7 +10,7 @@ import { AuthorItem } from '../../author.interface';
 export class ListComponent implements OnInit {
   public authorsList: AuthorItem[];
   public failed: string;
-  public displayedColumns: string[] = ['authorName', 'birthDate', 'email'];
+  public displayedColumns: string[] = ['index', 'authorName', 'birthDate', 'email', 'actions'];
 
   constructor(
     private authorApiService: AuthorApiService
@@ -18,6 +18,10 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.getAllAuthors();
+  }
+
+  public delete() {
+
   }
 
   private getAllAuthors(): void {

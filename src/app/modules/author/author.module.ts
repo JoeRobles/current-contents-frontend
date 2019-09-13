@@ -7,6 +7,7 @@ import { CreateComponent } from './pages/create/create.page';
 import { DetailComponent } from './pages/detail/detail.page';
 import { EditComponent } from './pages/edit/edit.page';
 import { MaterialModule } from '../../shared/modules/material/material.module';
+import { AuthorFormService } from './author-form.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MaterialModule } from '../../shared/modules/material/material.module';
     AuthorRoutingModule,
     MaterialModule,
   ],
-  exports: [ListComponent]
+  exports: [ListComponent],
+  providers: []
 })
 export class AuthorModule { }
