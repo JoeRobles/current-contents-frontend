@@ -16,3 +16,22 @@ export interface AllAuthorsResponse {
 export interface AuthorResponse {
   Item: AuthorItem;
 }
+
+export interface DeleteAuthorResponse {
+  message: string;
+}
+
+export interface CreateAuthorRequest {
+  authorName: string;
+  email: string;
+  birthDate: string;
+  updatedAt?: string;
+}
+
+export interface CreateAuthorResponse {
+  message: string;
+}
+
+export interface EditAuthorRequest {
+  Item: CreateAuthorRequest;
+}

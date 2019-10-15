@@ -48,7 +48,7 @@ describe('ListComponent', () => {
     (component as any).getAllAuthors();
     author.getAllAuthors().subscribe(
       list => {
-        expect(component.authorsList).toEqual(list);
+        expect(component.authorsList).toEqual(list.Items);
       }
     );
   }));
@@ -57,6 +57,28 @@ describe('ListComponent', () => {
     spyOn(author, 'getAllAuthors').and.returnValue(throwError(error));
     (component as any).getAllAuthors();
     author.getAllAuthors().subscribe(
+      () => {},
+      err => {
+        expect(component.failed).toEqual(err.message);
+      });
+  }));
+
+  it('should delete author by id', inject([AuthorApiService], (author: AuthorApiService) => {
+    spyOn(author, 'deleteAuthorById').and.returnValue(of({}));
+    const id = '123abc';
+    (component as any).deleteAuthorById(id);
+    author.deleteAuthorById(id).subscribe(
+      res => {
+        expect({}).toEqual(res);
+      }
+    );
+  }));
+
+  it('should throw error on deleting author by id', inject([AuthorApiService], (author: AuthorApiService) => {
+    spyOn(author, 'deleteAuthorById').and.returnValue(throwError(error));
+    const id = '123abc';
+    (component as any).deleteAuthorById(id);
+    author.deleteAuthorById(id).subscribe(
       () => {},
       err => {
         expect(component.failed).toEqual(err.message);

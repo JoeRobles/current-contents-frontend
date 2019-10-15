@@ -1,4 +1,9 @@
-import { AllAuthorsResponse, AuthorItem, AuthorResponse } from './author.interface';
+import {
+  AllAuthorsResponse,
+  AuthorItem,
+  AuthorResponse,
+  DeleteAuthorResponse
+} from './author.interface';
 
 export const AuthorStub = {
   allAuthorsResponse: <AllAuthorsResponse> {
@@ -37,5 +42,8 @@ export const AuthorStub = {
       email: 'j.r.r.tolkien@msn.com',
       birthDate: '01/03/1892'
     }
+  },
+  deleteAuthorResponse: <DeleteAuthorResponse> {
+    message: 'Author deleted successfully'
   }
 };

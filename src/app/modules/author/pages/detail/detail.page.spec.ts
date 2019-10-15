@@ -7,6 +7,9 @@ import { AuthorApiServiceStub } from '../../author-api.service.stub';
 import { DetailComponent } from './detail.page';
 import { of, throwError } from 'rxjs';
 import { AuthorStub } from '../../author.stub';
+import { MaterialModule } from '../../../../shared/modules/material/material.module';
+import { AuthorFormService } from '../../author-form.service';
+import { AuthorFormServiceStub } from '../../author-form.service.stub';
 
 describe('DetailComponent', () => {
   let component: DetailComponent;
@@ -16,9 +19,11 @@ describe('DetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule],
       declarations: [ DetailComponent ],
       providers: [
         { provide: AuthorApiService, useValue: AuthorApiServiceStub },
+        { provide: AuthorFormService, useValue: AuthorFormServiceStub },
         { provide: ActivatedRoute, useValue: ActivatedRouteStub },
       ]
     })
@@ -52,7 +57,7 @@ describe('DetailComponent', () => {
     (component as any).getAuthorById(id);
     author.getAuthorById(id).subscribe(
       singleAuthor => {
-        expect(component.author).toEqual(singleAuthor);
+        expect(component.author).toEqual(singleAuthor.Item);
       }
     );
   }));

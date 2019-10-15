@@ -20,8 +20,12 @@ export class ListComponent implements OnInit {
     this.getAllAuthors();
   }
 
-  public delete() {
-
+  public delete(authorId: string) {
+    this.authorApiService.deleteAuthorById(authorId).subscribe(
+      () => {
+        this.authorsList = this.authorsList.filter(author => author.authorId !== authorId);
+      }
+    );
   }
 
   private getAllAuthors(): void {

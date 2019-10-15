@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthorResponse } from '../../author.interface';
 import { AuthorApiService } from '../../author-api.service';
@@ -17,7 +18,8 @@ export class CreateComponent implements OnInit {
 
   constructor(
     private authorApiService: AuthorApiService,
-    private authorFormService: AuthorFormService
+    private authorFormService: AuthorFormService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,10 +27,17 @@ export class CreateComponent implements OnInit {
   }
 
   public back() {
-    
+    this.router.navigate(['author/list']);
   }
 
   public submit() {
-
+    this.authorApiService.newAuthor(this.form).subscribe(
+      res => {
+        this.back();
+      },
+      error => {
+        this.failed = error.message;
+      }
+    );
   }
 }

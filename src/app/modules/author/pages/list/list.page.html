@@ -36,7 +36,7 @@
     <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
     <mat-cell *matCellDef="let element">
       <button mat-raised-button [routerLink]="['/author/edit/' + element.authorId]" color="primary" type="button">Edit</button>&nbsp;&nbsp;
-      <button mat-raised-button (click)="delete()" color="warn" type="button">Delete</button>
+      <button mat-raised-button (click)="delete(element.authorId)" color="warn" type="button">Delete</button>
     </mat-cell>
   </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-import { AuthorItem } from './author.interface';
+import { AuthorItem, CreateAuthorRequest } from './author.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +15,6 @@ export class AuthorFormService {
     email: new FormControl(''),
     updatedAt: new FormControl(''),
   });
-
-  constructor() {
-  }
 
   public setAuthor(author: AuthorItem): void {
     const authorId = author && author.authorId ? author.authorId : '';
