@@ -64,7 +64,7 @@ describe('ListComponent', () => {
   }));
 
   it('should delete author by id', inject([AuthorApiService], (author: AuthorApiService) => {
-    spyOn(author, 'deleteAuthorById').and.returnValue(of({}));
+    spyOn(author, 'deleteAuthorById').and.returnValue(of(AuthorStub.deleteAuthorResponse));
     const id = '123abc';
     (component as any).deleteAuthorById(id);
     author.deleteAuthorById(id).subscribe(

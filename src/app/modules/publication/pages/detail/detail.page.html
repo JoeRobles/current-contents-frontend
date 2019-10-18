@@ -1,0 +1,32 @@
+<h1>Detail of an publication</h1>
+<mat-progress-spinner
+  *ngIf="!publication"
+  class="example-margin"
+  color="primary"
+  mode="indeterminate"
+  value="20">
+</mat-progress-spinner>
+<mat-card *ngIf="publication">
+  <form class="example-container" [formGroup]="form" fxLayout="column" novalidate autocomplete="nope" (keydown.enter)="$event.preventDefault()">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" readonly />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Body</mat-label>
+      <input matInput formControlName="body" readonly />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="authorId" readonly />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="publicationDate" readonly />
+    </mat-form-field>
+    <mat-card-actions>
+      <button type="submit" mat-raised-button [routerLink]="['/publication/edit/' + publication.publicationId]" color="primary">Edit</button>
+      <button mat-raised-button (click)="back()" color="accent">Back</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { AuthorRoutingModule } from './author.routing';
+import { PublicationRoutingModule } from './publication.routing';
 import { ListComponent } from './pages/list/list.page';
 import { CreateComponent } from './pages/create/create.page';
 import { DetailComponent } from './pages/detail/detail.page';
 import { EditComponent } from './pages/edit/edit.page';
 import { MaterialModule } from '../../shared/modules/material/material.module';
-import { AuthorFormService } from './author-form.service';
+import { PublicationFormService } from './publication-form.service';
 
 @NgModule({
   declarations: [
@@ -18,10 +18,10 @@ import { AuthorFormService } from './author-form.service';
   ],
   imports: [
     CommonModule,
-    AuthorRoutingModule,
+    PublicationRoutingModule,
     MaterialModule,
   ],
   exports: [ListComponent],
-  providers: [AuthorFormService]
+  providers: [PublicationFormService]
 })
-export class AuthorModule { }
+export class PublicationModule { }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
@@ -11,7 +12,6 @@ import {
   CreateAuthorResponse,
   DeleteAuthorResponse, EditAuthorRequest
 } from './author.interface';
-import { FormGroup } from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'

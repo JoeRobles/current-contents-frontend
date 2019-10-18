@@ -1,0 +1,27 @@
+<h1>Create publication</h1>
+<mat-card>
+  <form class="example-container" [formGroup]="form" fxLayout="column" novalidate autocomplete="nope" (keydown.enter)="$event.preventDefault()">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Body</mat-label>
+      <input matInput formControlName="body" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Author</mat-label>
+      <mat-select matInput formControlName="authorId" required>
+        <mat-option value=""></mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="publicationDate" required />
+    </mat-form-field>
+    <mat-card-actions>
+      <button (click)="submit()" mat-raised-button color="primary">Submit</button>
+      <button (click)="back()" mat-raised-button color="warn">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
