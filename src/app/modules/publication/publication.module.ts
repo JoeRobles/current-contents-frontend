@@ -8,6 +8,7 @@ import { DetailComponent } from './pages/detail/detail.page';
 import { EditComponent } from './pages/edit/edit.page';
 import { MaterialModule } from '../../shared/modules/material/material.module';
 import { PublicationFormService } from './publication-form.service';
+import { AuthorFormatPipe } from '../../shared/pipes/author-format.pipe';
 
 @NgModule({
   declarations: [
@@ -15,11 +16,12 @@ import { PublicationFormService } from './publication-form.service';
     CreateComponent,
     DetailComponent,
     EditComponent,
+    AuthorFormatPipe
   ],
   imports: [
     CommonModule,
     PublicationRoutingModule,
-    MaterialModule,
+    MaterialModule
   ],
   exports: [ListComponent],
   providers: [PublicationFormService]

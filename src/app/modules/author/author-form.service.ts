@@ -16,7 +16,7 @@ export class AuthorFormService {
     updatedAt: new FormControl(''),
   });
 
-  public setAuthor(author: AuthorItem): void {
+  public setAuthor(author: AuthorItem = null): void {
     const authorId = author && author.authorId ? author.authorId : '';
     const authorName = author && author.authorName ? author.authorName : '';
     const birthDate = author && author.birthDate ? author.birthDate : '';

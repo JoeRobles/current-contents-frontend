@@ -15,19 +15,19 @@
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="authorName">
-    <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
     <mat-cell *matCellDef="let element">
       <a [routerLink]="['/author/detail/' + element.authorId]">{{ element.authorName }}</a>
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="birthDate">
-    <mat-header-cell *matHeaderCellDef>Body</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>Birth date</mat-header-cell>
     <mat-cell *matCellDef="let element">
       <a [routerLink]="['/author/detail/' + element.authorId]">{{ element.birthDate }}</a>
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="email">
-    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
     <mat-cell *matCellDef="let element">
       <a [routerLink]="['/author/detail/' + element.authorId]">{{ element.email }}</a>
     </mat-cell>

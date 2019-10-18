@@ -23,6 +23,7 @@ export class CreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.authorFormService.setAuthor();
     this.form = this.authorFormService.form;
   }
 

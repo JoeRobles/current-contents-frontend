@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { PublicationResponse } from '../../publication.interface';
 import { PublicationApiService } from '../../publication-api.service';
 import { PublicationFormService } from '../../publication-form.service';
+import { AuthorApiService } from '../../../author/author-api.service';
+import { AuthorItem } from '../../../author/author.interface';
 
 @Component({
   selector: 'cc-create',
@@ -12,6 +14,7 @@ import { PublicationFormService } from '../../publication-form.service';
   styleUrls: ['./create.page.scss']
 })
 export class CreateComponent implements OnInit {
+  public authorsList: AuthorItem[];
   public publication: PublicationResponse;
   public failed: string;
   public form: FormGroup;
@@ -19,10 +22,13 @@ export class CreateComponent implements OnInit {
   constructor(
     private publicationApiService: PublicationApiService,
     private publicationFormService: PublicationFormService,
-    private router: Router
+    private router: Router,
+    private authorApiService: AuthorApiService
   ) { }
 
   ngOnInit() {
+    this.getAllAuthors();
+    this.publicationFormService.setPublication();
     this.form = this.publicationFormService.form;
   }
 
@@ -34,6 +40,17 @@ export class CreateComponent implements OnInit {
     this.publicationApiService.newPublication(this.form).subscribe(
       res => {
         this.back();
+      },
+      error => {
+        this.failed = error.message;
+      }
+    );
+  }
+
+  private getAllAuthors(): void {
+    this.authorApiService.getAllAuthors().subscribe(
+      list => {
+        this.authorsList = list.Items;
       },
       error => {
         this.failed = error.message;

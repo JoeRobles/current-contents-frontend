@@ -17,7 +17,7 @@ export class PublicationFormService {
     updatedAt: new FormControl(''),
   });
 
-  public setPublication(publication: PublicationItem): void {
+  public setPublication(publication: PublicationItem = null): void {
     const authorId = publication && publication.authorId ? publication.authorId : '';
     const body = publication && publication.body ? publication.body : '';
     const createdAt = publication && publication.createdAt ? publication.createdAt : '';

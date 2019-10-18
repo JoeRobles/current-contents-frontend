@@ -11,38 +11,38 @@
   <ng-container matColumnDef="index">
     <mat-header-cell *matHeaderCellDef>Nº</mat-header-cell>
     <mat-cell *matCellDef="let element; let i = index;">
-      <a [routerLink]="['/publication/detail/' + element.publicationId]">{{ i + 1 }}</a>
+      <a [routerLink]="['/publication/detail/' + element?.publicationId]">{{ i + 1 }}</a>
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="title">
     <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
     <mat-cell *matCellDef="let element">
-      <a [routerLink]="['/publication/detail/' + element.publicationId]">{{ element.title }}</a>
+      <a [routerLink]="['/publication/detail/' + element?.publicationId]">{{ element?.title }}</a>
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="body">
     <mat-header-cell *matHeaderCellDef>Body</mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <a [routerLink]="['/publication/detail/' + element.publicationId]">{{ element.body }}</a>
+    <mat-cell class="truncate" *matCellDef="let element">
+      <a [routerLink]="['/publication/detail/' + element?.publicationId]">{{ element?.body }}</a>
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="authorId">
     <mat-header-cell *matHeaderCellDef>Author</mat-header-cell>
     <mat-cell *matCellDef="let element">
-      <a [routerLink]="['/author/detail/' + element.authorId]">{{ element.authorId }}</a>
+      <a [routerLink]="['/author/detail/' + element?.authorId]">{{ element?.authorId | authorFormat:getAuthorById(element?.authorId) }}</a>
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="publicationDate">
-    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+    <mat-header-cell class="sort-header" *matHeaderCellDef (click)="sortByDate()">Date <i [ngClass]="{'icon-sort-amount-asc': ascending, 'icon-sort-amount-desc': !ascending}"></i></mat-header-cell>
     <mat-cell *matCellDef="let element">
-      <a [routerLink]="['/publication/detail/' + element.publicationId]">{{ element.publicationDate }}</a>
+      <a [routerLink]="['/publication/detail/' + element?.publicationId]">{{ element?.publicationDate }}</a>
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
     <mat-cell *matCellDef="let element">
-      <button mat-raised-button [routerLink]="['/publication/edit/' + element.publicationId]" color="primary" type="button">Edit</button>&nbsp;&nbsp;
-      <button mat-raised-button (click)="delete(element.publicationId)" color="warn" type="button">Delete</button>
+      <button mat-raised-button [routerLink]="['/publication/edit/' + element?.publicationId]" color="primary" type="button">Edit</button>&nbsp;&nbsp;
+      <button mat-raised-button (click)="delete(element?.publicationId)" color="warn" type="button">Delete</button>
     </mat-cell>
   </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
