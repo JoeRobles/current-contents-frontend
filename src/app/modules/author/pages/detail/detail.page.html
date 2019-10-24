@@ -10,18 +10,19 @@
   <form class="example-container" [formGroup]="form" fxLayout="column" novalidate autocomplete="nope" (keydown.enter)="$event.preventDefault()">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input matInput formControlName="authorName" readonly />
+      <input id="authorName" matInput formControlName="authorName" readonly />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Birth date</mat-label>
-      <input matInput formControlName="birthDate" readonly />
+      <input id="birthDate" matInput formControlName="birthDate" readonly />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" readonly />
+      <input id="email" matInput formControlName="email" readonly />
     </mat-form-field>
     <mat-card-actions>
       <button type="submit" mat-raised-button [routerLink]="['/author/edit/' + author.authorId]" color="primary">Edit</button>
+      <button mat-raised-button (click)="delete(author.authorId)" color="warn" type="button">Delete</button>
       <button mat-raised-button (click)="back()" color="accent">Back</button>
     </mat-card-actions>
   </form>

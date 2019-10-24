@@ -44,4 +44,12 @@ export class DetailComponent implements OnInit {
       }
     );
   }
+
+  public delete(authorId: string) {
+    this.authorApiService.deleteAuthorById(authorId).subscribe(
+      () => {
+        this.back();
+      }
+    );
+  }
 }

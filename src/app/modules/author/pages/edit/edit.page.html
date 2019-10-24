@@ -10,15 +10,15 @@
   <form class="example-container" [formGroup]="form" fxLayout="column" novalidate autocomplete="nope" (keydown.enter)="$event.preventDefault()">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input matInput formControlName="authorName" required />
+      <input id="authorName" matInput formControlName="authorName" required />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Birth date</mat-label>
-      <input matInput formControlName="birthDate" required />
+      <input id="birthDate" matInput formControlName="birthDate" required />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" required />
+      <input id="email" matInput formControlName="email" required />
     </mat-form-field>
     <mat-card-actions>
       <button (click)="submit()" mat-raised-button color="primary">Submit</button>

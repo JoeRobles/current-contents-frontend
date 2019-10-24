@@ -39,9 +39,9 @@ export class ListComponent implements OnInit {
       list => {
         this.publicationsList = list.Items.sort((a, b) => {
           if (this.ascending) {
-            return a.publicationDate - b.publicationDate;
+            return Number(a.publicationDate) - Number(b.publicationDate);
           } else {
-            return b.publicationDate - a.publicationDate;
+            return Number(b.publicationDate) - Number(a.publicationDate);
           }
         });
       },
