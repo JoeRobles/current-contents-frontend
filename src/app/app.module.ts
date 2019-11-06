@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ModulesModule } from './modules/modules.module';
 import { PagesModule } from './pages/pages.module';
 import { MaterialModule } from './shared/modules/material/material.module';
-import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   imports: [
@@ -25,8 +24,7 @@ import { HomeComponent } from './pages/home/home.component';
     PagesModule
   ],
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
