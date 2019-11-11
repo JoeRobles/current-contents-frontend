@@ -37,7 +37,26 @@
     .mat-form-field-label {
       color: #ffffff;
     }
+
+    .mat-nav-list span {
+      color: #ffffff;
+    }
   }
 }
 
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+.text-center {
+  text-align: center;
+}
+
+.sort-header {
+  cursor: pointer;
+}
+.mat-nav-list .active-link {
+  background: #32356b;
+}

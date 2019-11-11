@@ -35,6 +35,12 @@ export class PublicationApiService {
     return this.http.get<PublicationResponse>(endpoint);
   }
 
+  public getPublicationsByAuthorId(authorId: string): Observable<AllPublicationsResponse> {
+    const endpoint = `${this.url}/author/${authorId}`;
+
+    return this.http.get<AllPublicationsResponse>(endpoint);
+  }
+
   public deletePublicationById(id: string): Observable<DeletePublicationResponse> {
     const endpoint = `${this.url}/${id}`;
 

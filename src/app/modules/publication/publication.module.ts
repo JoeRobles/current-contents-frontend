@@ -23,7 +23,7 @@ import { AuthorFormatPipe } from '../../shared/pipes/author-format.pipe';
     PublicationRoutingModule,
     MaterialModule
   ],
-  exports: [ListComponent],
+  exports: [ListComponent, AuthorFormatPipe],
   providers: [PublicationFormService]
 })
 export class PublicationModule { }
